@@ -1,0 +1,41 @@
+.input {
+  margin: 50px auto;
+  padding: 30px;
+  width: 70%;
+  max-width: 720px;
+  text-align: end;
+}
+
+.input form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input form div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+}
+
+.input label {
+  font-weight: 500;
+  width: 30%;
+  color: #1f1f1f;
+}
+
+.input input {
+  font: inherit;
+  width: 60%;
+  border: 1px solid #ccc;
+  padding: 6px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.input input:focus {
+  outline: none;
+}
