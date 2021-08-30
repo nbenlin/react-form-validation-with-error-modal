@@ -90,7 +90,7 @@ const AddUser = (props) => {
         <form onSubmit={formSubmittingHandler}>
           <div className={nameHasError && classes.invalid}>
             <div className={classes.inputItem}>
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">First name</label>
               <input
                 id="name"
                 type="text"
@@ -106,7 +106,7 @@ const AddUser = (props) => {
 
           <div className={surnameHasError && classes.invalid}>
             <div className={classes.inputItem}>
-              <label htmlFor="surname">Surname</label>
+              <label htmlFor="surname">Last name</label>
               <input
                 id="surname"
                 type="text"
