@@ -1,9 +1,9 @@
-import AuthPage from "./pages/AuthPage";
+import AddUser from "./components/User/Add/AddUser";
 
 const App = () => {
   return (
     <>
-      <AuthPage />
+      <AddUser />
     </>
   );
 };
