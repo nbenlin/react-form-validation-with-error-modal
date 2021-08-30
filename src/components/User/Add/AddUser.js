@@ -58,10 +58,10 @@ const AddUser = (props) => {
     event.preventDefault();
 
     if (
-      !nameIsValid &&
-      !surnameIsValid &&
-      !emailIsValid &&
-      !passwordIsValid &&
+      !nameIsValid ||
+      !surnameIsValid ||
+      !emailIsValid ||
+      !passwordIsValid ||
       !phoneIsValid
     ) {
       setError({
@@ -70,6 +70,12 @@ const AddUser = (props) => {
       });
       return;
     }
+    props.onAddUser(enteredName, enteredSurname, enteredEmail, enteredPhone);
+    resetName();
+    resetSurname();
+    resetEmail();
+    resetPassword();
+    resetPhone();
   };
 
   const errorHandler = () => {
