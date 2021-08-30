@@ -9,21 +9,30 @@
 .input form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 
 .input form div {
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 80%;
+}
+
+.input form div .inputItem {
+  display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   width: 80%;
+  height: 50px;
 }
 
 .input label {
   font-weight: 500;
-  width: 30%;
+  width: 20%;
   color: #1f1f1f;
 }
 
@@ -38,4 +47,26 @@
 
 .input input:focus {
   outline: none;
+}
+
+.invalid input {
+  border: 1px solid #b40e0e;
+  background-color: #fddddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+}
+
+.invalid input:focus {
+  border-color: #ff8800;
+  background-color: #fbe8d2;
+}
+
+.error {
+  position: fixed;
+  color: #b40e0e;
+  font-size: 12px;
+  text-align: start;
+  margin: 40px 0 0 140px;
 }

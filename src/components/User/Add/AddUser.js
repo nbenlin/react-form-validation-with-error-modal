@@ -65,45 +65,17 @@ const AddUser = (props) => {
       !phoneIsValid
     ) {
       setError({
-        title: "Invalid input",
-        message: "Please enter a valid credentials (non-empty values).",
+        title: "Invalid form!",
+        message: "Please complete all required fields.",
       });
       return;
     }
-    if (nameHasError)
-      setError({
-        title: "Invalid name",
-        message: "Please enter a valid name.",
-      });
-
-    if (surnameHasError)
-      setError({
-        title: "Invalid surname",
-        message: "Please enter a valid surname.",
-      });
-
-    if (emailHasError)
-      setError({
-        title: "Invalid email",
-        message: "Please enter a valid email.",
-      });
-
-    if (passwordHasError)
-      setError({
-        title: "Invalid password",
-        message: "Please enter a valid passowrd.",
-      });
-
-    if (phoneHasError)
-      setError({
-        title: "Invalid phone number",
-        message: "Please enter a valid phone number.",
-      });
   };
 
   const errorHandler = () => {
     setError(null);
   };
+  /* end handler functions */
 
   return (
     <>
@@ -116,55 +88,83 @@ const AddUser = (props) => {
       )}
       <Card className={classes.input}>
         <form onSubmit={formSubmittingHandler}>
-          <div>
-            <label htmlFor="name">Name</label>
-            <input
-              id="name"
-              type="text"
-              onChange={nameChangeHandler}
-              onBlur={nameBlurHandler}
-              value={enteredName}
-            />
+          <div className={nameHasError && classes.invalid}>
+            <div className={classes.inputItem}>
+              <label htmlFor="name">Name</label>
+              <input
+                id="name"
+                type="text"
+                onChange={nameChangeHandler}
+                onBlur={nameBlurHandler}
+                value={enteredName}
+              />
+            </div>
+            {nameHasError && (
+              <p className={classes.error}>Name must be not empty.</p>
+            )}
           </div>
-          <div>
-            <label htmlFor="surname">Surname</label>
-            <input
-              id="surname"
-              type="text"
-              onChange={surnameChangeHandler}
-              onBlur={surnameBlurHandler}
-              value={enteredSurname}
-            />
+
+          <div className={surnameHasError && classes.invalid}>
+            <div className={classes.inputItem}>
+              <label htmlFor="surname">Surname</label>
+              <input
+                id="surname"
+                type="text"
+                onChange={surnameChangeHandler}
+                onBlur={surnameBlurHandler}
+                value={enteredSurname}
+              />
+            </div>
+            {surnameHasError && (
+              <p className={classes.error}>Surname must be not empty.</p>
+            )}
           </div>
-          <div>
-            <label htmlFor="email">E-mail</label>
-            <input
-              id="email"
-              type="text"
-              onChange={emailChangeHandler}
-              onBlur={emailBlurHandler}
-              value={enteredEmail}
-            />
+
+          <div className={emailHasError && classes.invalid}>
+            <div className={classes.inputItem}>
+              <label htmlFor="email">E-mail</label>
+              <input
+                id="email"
+                type="text"
+                onChange={emailChangeHandler}
+                onBlur={emailBlurHandler}
+                value={enteredEmail}
+              />
+            </div>
+            {emailHasError && (
+              <p className={classes.error}>Email must be not empty.</p>
+            )}
           </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              onChange={passwordChangeHandler}
-              onBlur={passwordBlurHandler}
-              value={enteredPassword}
-            />
+
+          <div className={passwordHasError && classes.invalid}>
+            <div className={classes.inputItem}>
+              <label htmlFor="password">Password</label>
+              <input
+                id="password"
+                type="password"
+                onChange={passwordChangeHandler}
+                onBlur={passwordBlurHandler}
+                value={enteredPassword}
+              />
+            </div>
+            {passwordHasError && (
+              <p className={classes.error}>Password must be not empty.</p>
+            )}
           </div>
-          <div>
-            <label htmlFor="phone">Telephone</label>
-            <input
-              id="phone"
-              type="text"
-              onChange={phoneChangeHandler}
-              onBlur={phoneBlurHandler}
-              value={enteredPhone}
-            />
+          <div className={phoneHasError && classes.invalid}>
+            <div className={classes.inputItem}>
+              <label htmlFor="phone">Telephone</label>
+              <input
+                id="phone"
+                type="text"
+                onChange={phoneChangeHandler}
+                onBlur={phoneBlurHandler}
+                value={enteredPhone}
+              />
+            </div>
+            {phoneHasError && (
+              <p className={classes.error}>Phone must be not empty.</p>
+            )}
           </div>
           <Button type="submit">Submit</Button>
         </form>
