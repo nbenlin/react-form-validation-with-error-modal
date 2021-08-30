@@ -3,9 +3,12 @@ import Card from "../../UI/Card/Card";
 import classes from "./UsersList.module.css";
 
 const UsersList = (props) => {
+  const isFallback = props.users.length === 0;
+
   return (
     <Card className={classes.users}>
       <ul>
+        {isFallback && <li className={classes.error}>There is no user</li>}
         {props.users.map((user) => (
           <li>
             <span>

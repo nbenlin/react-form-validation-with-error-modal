@@ -18,3 +18,8 @@
   display: flex;
   justify-content: space-around;
 }
+
+.error {
+  color: #b40e0e;
+  font-size: 13px;
+}
