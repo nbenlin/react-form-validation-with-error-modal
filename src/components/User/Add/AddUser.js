@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import useInput from "../../hooks/use-input";
+import useInput from "../../Hooks/use-input";
 import Button from "../../UI/Button/Button";
 import Card from "../../UI/Card/Card";
 import ErrorModal from "../../UI/Modal/ErrorModal";
+import Wrapper from "../../Helpers/Wrapper";
 import classes from "./AddUser.module.css";
 
 const isNotEmpty = (value) => value.trim() !== "";
@@ -84,7 +85,7 @@ const AddUser = (props) => {
   /* end handler functions */
 
   return (
-    <>
+    <Wrapper>
       {error && (
         <ErrorModal
           title={error.title}
@@ -109,7 +110,6 @@ const AddUser = (props) => {
               <p className={classes.error}>Name must be not empty.</p>
             )}
           </div>
-
           <div className={surnameHasError && classes.invalid}>
             <div className={classes.inputItem}>
               <label htmlFor="surname">Last name</label>
@@ -175,7 +175,7 @@ const AddUser = (props) => {
           <Button type="submit">Submit</Button>
         </form>
       </Card>
-    </>
+    </Wrapper>
   );
 };
 
