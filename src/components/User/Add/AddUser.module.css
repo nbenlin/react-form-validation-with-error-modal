@@ -1,61 +1,70 @@
 .input {
-  margin: 70px auto;
-  padding: 30px 10px;
-  width: 50%;
-}
-
-.input form {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  align-items: center;
-}
-
-.input form div {
-  display: flex;
-  width: 80%;
-}
-
-.input form div .inputItem {
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 50px;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
 }
 
-.input label {
+.input form {
+}
+
+.control {
+  margin: 13px auto;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  padding: 4px 0;
+}
+
+.control label {
   font-weight: 500;
-  width: 15%;
+  width: 50%;
   color: #1f1f1f;
 }
 
-.input input {
+.control input {
   font: inherit;
-  width: 40%;
+  width: 100%;
   border: 1px solid #ccc;
   padding: 6px;
   border-radius: 4px;
 }
 
-.input input:focus {
+.control input:focus {
   outline: none;
 }
 
-.invalid input {
+.control.invalid input {
   border: 1px solid #b40e0e;
   background-color: #fddddd;
 }
 
-.invalid input:focus {
+.control.invalid input:focus {
   border-color: #ff8800;
   background-color: #fbe8d2;
+}
+
+.actions {
+  text-align: center;
 }
 
 .error {
   position: fixed;
   color: #b40e0e;
   font-size: 12px;
-  margin: 43px 0 0 290px;
+  margin: 55px 0 0 30px;
+}
+
+@media (min-width: 768px) {
+  .control {
+    align-items: center;
+    flex-direction: row;
+  }
+  .error {
+    margin: 50px 0 0 100px;
+  }
 }

@@ -36,11 +36,11 @@ const AddUser = (props) => {
     reset: resetEmail,
   } = useInput(isEmail);
   const {
-    value: enteredPassword,
-    isValid: passwordIsValid,
-    hasError: passwordHasError,
-    valueChangeHandler: passwordChangeHandler,
-    inputBlurHandler: passwordBlurHandler,
+    value: enteredCountry,
+    isValid: countryIsValid,
+    hasError: countryHasError,
+    valueChangeHandler: countryChangeHandler,
+    inputBlurHandler: countryBlurHandler,
     reset: resetPassword,
   } = useInput(isNotEmpty);
   const {
@@ -62,7 +62,7 @@ const AddUser = (props) => {
       !nameIsValid ||
       !surnameIsValid ||
       !emailIsValid ||
-      !passwordIsValid ||
+      !countryIsValid ||
       !phoneIsValid
     ) {
       setError({
@@ -95,84 +95,96 @@ const AddUser = (props) => {
       )}
       <Card className={classes.input}>
         <form onSubmit={formSubmittingHandler}>
-          <div className={nameHasError ? classes.invalid : ""}>
-            <div className={classes.inputItem}>
-              <label htmlFor="name">First name</label>
-              <input
-                id="name"
-                type="text"
-                onChange={nameChangeHandler}
-                onBlur={nameBlurHandler}
-                value={enteredName}
-              />
-            </div>
+          <div
+            className={`${classes.control} ${
+              nameHasError === true ? classes.invalid : ""
+            }`}
+          >
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              onChange={nameChangeHandler}
+              onBlur={nameBlurHandler}
+              value={enteredName}
+            />
             {nameHasError && (
-              <p className={classes.error}>Name must be not empty.</p>
+              <p className={classes.error}>Please check your e-mail.</p>
             )}
           </div>
-          <div className={surnameHasError ? classes.invalid : ""}>
-            <div className={classes.inputItem}>
-              <label htmlFor="surname">Last name</label>
-              <input
-                id="surname"
-                type="text"
-                onChange={surnameChangeHandler}
-                onBlur={surnameBlurHandler}
-                value={enteredSurname}
-              />
-            </div>
+          <div
+            className={`${classes.control} ${
+              surnameHasError === true ? classes.invalid : ""
+            }`}
+          >
+            <label htmlFor="surname">Last name</label>
+            <input
+              id="surname"
+              type="text"
+              onChange={surnameChangeHandler}
+              onBlur={surnameBlurHandler}
+              value={enteredSurname}
+            />
             {surnameHasError && (
               <p className={classes.error}>Surname must be not empty.</p>
             )}
           </div>
 
-          <div className={emailHasError ? classes.invalid : ""}>
-            <div className={classes.inputItem}>
-              <label htmlFor="email">E-mail</label>
-              <input
-                id="email"
-                type="text"
-                onChange={emailChangeHandler}
-                onBlur={emailBlurHandler}
-                value={enteredEmail}
-              />
-            </div>
+          <div
+            className={`${classes.control} ${
+              emailHasError === true ? classes.invalid : ""
+            }`}
+          >
+            <label htmlFor="email">E-mail</label>
+            <input
+              id="email"
+              type="text"
+              onChange={emailChangeHandler}
+              onBlur={emailBlurHandler}
+              value={enteredEmail}
+            />
             {emailHasError && (
               <p className={classes.error}>Email must be not empty.</p>
             )}
           </div>
 
-          <div className={passwordHasError ? classes.invalid : ""}>
-            <div className={classes.inputItem}>
-              <label htmlFor="password">Password</label>
-              <input
-                id="password"
-                type="password"
-                onChange={passwordChangeHandler}
-                onBlur={passwordBlurHandler}
-                value={enteredPassword}
-              />
-            </div>
-            {passwordHasError && (
-              <p className={classes.error}>Password must be not empty.</p>
+          <div
+            className={`${classes.control} ${
+              countryHasError === true ? classes.invalid : ""
+            }`}
+          >
+            <label htmlFor="country">Country</label>
+            <input
+              id="country"
+              type="text"
+              onChange={countryChangeHandler}
+              onBlur={countryBlurHandler}
+              value={enteredCountry}
+            />
+            {countryHasError && (
+              <p className={classes.error}>Country must be not empty.</p>
             )}
           </div>
-          <div className={phoneHasError ? classes.invalid : ""}>
-            <div className={classes.inputItem}>
-              <label htmlFor="phone">Telephone</label>
-              <input
-                id="phone"
-                type="text"
-                onChange={phoneChangeHandler}
-                onBlur={phoneBlurHandler}
-                value={enteredPhone}
-              />
-            </div>
+          <div
+            className={`${classes.control} ${
+              phoneHasError === true ? classes.invalid : ""
+            }`}
+          >
+            <label htmlFor="phone">Telephone</label>
+            <input
+              id="phone"
+              type="text"
+              onChange={phoneChangeHandler}
+              onBlur={phoneBlurHandler}
+              value={enteredPhone}
+            />
             {phoneHasError && (
               <p className={classes.error}>Phone must be not empty.</p>
             )}
           </div>
-          <Button type="submit">Submit</Button>
+          <div className={classes.actions}>
+            <Button type="submit">Submit</Button>
+          </div>
         </form>
       </Card>
     </Wrapper>
