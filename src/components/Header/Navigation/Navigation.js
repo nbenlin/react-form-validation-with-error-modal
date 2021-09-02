@@ -2,13 +2,15 @@ import React from "react";
 import classes from "./Navigation.module.css";
 import Button from "../../UI/Button/Button";
 
-const Navigation = () => {
+const Navigation = (props) => {
   return (
     <nav className={classes.nav}>
       <ul>
-        <li>
-          <Button>Logout</Button>
-        </li>
+        {props.isLoggedIn && (
+          <li>
+            <Button onClick={props.onLogout}>Logout</Button>
+          </li>
+        )}
       </ul>
     </nav>
   );

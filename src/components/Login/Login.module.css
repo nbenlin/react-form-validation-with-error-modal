@@ -6,10 +6,11 @@
 }
 
 .control {
-  margin: 12px 0;
+  margin: 13px 0;
   display: flex;
   align-items: stretch;
   flex-direction: column;
+  padding: 4px 0;
 }
 
 .control label,
@@ -45,6 +46,17 @@
 
 .actions {
   text-align: center;
+}
+
+.actions button {
+  margin: 0;
+}
+
+.error {
+  position: fixed;
+  color: #b40e0e;
+  font-size: 12px;
+  margin: 50px 0 0 120px;
 }
 
 @media (min-width: 768px) {

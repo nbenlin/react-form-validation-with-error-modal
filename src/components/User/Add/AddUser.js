@@ -95,7 +95,7 @@ const AddUser = (props) => {
       )}
       <Card className={classes.input}>
         <form onSubmit={formSubmittingHandler}>
-          <div className={nameHasError && classes.invalid}>
+          <div className={nameHasError ? classes.invalid : ""}>
             <div className={classes.inputItem}>
               <label htmlFor="name">First name</label>
               <input
@@ -110,7 +110,7 @@ const AddUser = (props) => {
               <p className={classes.error}>Name must be not empty.</p>
             )}
           </div>
-          <div className={surnameHasError && classes.invalid}>
+          <div className={surnameHasError ? classes.invalid : ""}>
             <div className={classes.inputItem}>
               <label htmlFor="surname">Last name</label>
               <input
@@ -126,7 +126,7 @@ const AddUser = (props) => {
             )}
           </div>
 
-          <div className={emailHasError && classes.invalid}>
+          <div className={emailHasError ? classes.invalid : ""}>
             <div className={classes.inputItem}>
               <label htmlFor="email">E-mail</label>
               <input
@@ -142,7 +142,7 @@ const AddUser = (props) => {
             )}
           </div>
 
-          <div className={passwordHasError && classes.invalid}>
+          <div className={passwordHasError ? classes.invalid : ""}>
             <div className={classes.inputItem}>
               <label htmlFor="password">Password</label>
               <input
@@ -157,7 +157,7 @@ const AddUser = (props) => {
               <p className={classes.error}>Password must be not empty.</p>
             )}
           </div>
-          <div className={phoneHasError && classes.invalid}>
+          <div className={phoneHasError ? classes.invalid : ""}>
             <div className={classes.inputItem}>
               <label htmlFor="phone">Telephone</label>
               <input

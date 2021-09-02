@@ -5,10 +5,25 @@ import Login from "./components/Login/Login";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const loginHandler = (email, password) => {
+    setIsLoggedIn(true);
+  };
+
+  const logoutHandler = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <Fragment>
-      <MainHeader />
-      <main>{isLoggedIn ? <Home /> : <Login />}</main>
+      <MainHeader isAuth={isLoggedIn} onLogout={logoutHandler} />
+      <main>
+        {isLoggedIn ? (
+          <Home onLogout={logoutHandler} />
+        ) : (
+          <Login onLogin={loginHandler} />
+        )}
+      </main>
     </Fragment>
   );
 };
