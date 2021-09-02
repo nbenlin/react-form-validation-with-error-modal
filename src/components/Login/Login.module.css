@@ -1,0 +1,55 @@
+.login {
+  width: 90%;
+  max-width: 480px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.control {
+  margin: 12px 0;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.control label,
+.control input {
+  display: block;
+}
+
+.control label {
+  font-weight: bold;
+  flex: 1;
+  color: #464646;
+  margin-bottom: 6px;
+}
+
+.control input {
+  flex: 3;
+  font: inherit;
+  padding: 6px 3px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.control input:focus {
+  outline: none;
+  border-color: #e76f51;
+  background: #e9c46a;
+}
+
+.control.invalid input {
+  border-color: red;
+  background: #e9c2c2;
+}
+
+.actions {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .control {
+    align-items: center;
+    flex-direction: row;
+  }
+}
