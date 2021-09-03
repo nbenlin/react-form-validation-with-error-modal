@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Card from "../UI/Card/Card";
 import Button from "../UI/Button/Button";
 import classes from "./Login.module.css";
 import useInput from "../Hooks/use-input";
+import AuthContext from "../../context/auth-context";
 
 const isEmailCorrect = (value) => value.includes("@");
 const isPasswordCorrect = (value) => value.trim().length > 6;
@@ -26,6 +27,8 @@ const Login = (props) => {
   } = useInput(isPasswordCorrect);
   const [formIsValid, setFormIsValid] = useState(false);
 
+  const authCtx = useContext(AuthContext);
+
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log("Checking form validity!");
@@ -40,7 +43,7 @@ const Login = (props) => {
   const loginFormSubmittingHandler = (event) => {
     event.preventDefault();
     if (!formIsValid) return;
-    props.onLogin();
+    authCtx.onLogin();
     resetUserEmail();
     resetUserPassword();
   };
