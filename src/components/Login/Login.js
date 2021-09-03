@@ -30,6 +30,9 @@ const Login = (props) => {
 
   const authCtx = useContext(AuthContext);
 
+  const emailInputRef = useRef();
+  const passwordInputRef = useRef();
+
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log("Checking form validity!");
@@ -43,8 +46,13 @@ const Login = (props) => {
 
   const loginFormSubmittingHandler = (event) => {
     event.preventDefault();
-    if (!formIsValid) return;
-    authCtx.onLogin();
+    if (formIsValid) {
+      authCtx.onLogin();
+    } else if (!userEmailIsValid) {
+      emailInputRef.current.activate();
+    } else {
+      passwordInputRef.current.activate();
+    }
     resetUserEmail();
     resetUserPassword();
   };
@@ -54,6 +62,7 @@ const Login = (props) => {
       <Card className={classes.login}>
         <form onSubmit={loginFormSubmittingHandler}>
           <Input
+            ref={emailInputRef}
             id="email"
             label="email"
             type="text"
@@ -64,6 +73,7 @@ const Login = (props) => {
             blurHandler={userEmailBlurHandler}
           />
           <Input
+            ref={passwordInputRef}
             id="password"
             label="Password"
             type="text"
@@ -74,9 +84,7 @@ const Login = (props) => {
             blurHandler={userPasswordBlurHandler}
           />
           <div className={classes.actions}>
-            <Button type="submit" disabled={!formIsValid}>
-              Login
-            </Button>
+            <Button type="submit">Login</Button>
           </div>
         </form>
       </Card>
