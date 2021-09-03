@@ -4,6 +4,7 @@ import Button from "../UI/Button/Button";
 import classes from "./Login.module.css";
 import useInput from "../Hooks/use-input";
 import AuthContext from "../../context/auth-context";
+import Input from "../UI/Input/Input";
 
 const isEmailCorrect = (value) => value.includes("@");
 const isPasswordCorrect = (value) => value.trim().length > 6;
@@ -52,40 +53,26 @@ const Login = (props) => {
     <React.Fragment>
       <Card className={classes.login}>
         <form onSubmit={loginFormSubmittingHandler}>
-          <div
-            className={`${classes.control} ${
-              userEmailHasError === true ? classes.invalid : ""
-            }`}
-          >
-            <label htmlFor="email">E-mail</label>
-            <input
-              type="text"
-              id="email"
-              onChange={userEmailChangeHandler}
-              onBlur={userEmailBlurHandler}
-              value={enteredUserEmail}
-            />
-            {userEmailHasError && (
-              <p className={classes.error}>Please check your e-mail.</p>
-            )}
-          </div>
-          <div
-            className={`${classes.control} ${
-              userPasswordHasError === true ? classes.invalid : ""
-            }`}
-          >
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              onChange={userPasswordChangeHandler}
-              onBlur={userPasswordBlurHandler}
-              value={enteredUserPassword}
-            />
-            {userPasswordHasError && (
-              <p className={classes.error}>Please check your password.</p>
-            )}
-          </div>
+          <Input
+            id="email"
+            label="email"
+            type="text"
+            hasError={userEmailHasError}
+            value={enteredUserEmail}
+            errorMessage="Please check your e-mail."
+            changeHandler={userEmailChangeHandler}
+            blurHandler={userEmailBlurHandler}
+          />
+          <Input
+            id="password"
+            label="Password"
+            type="text"
+            hasError={userPasswordHasError}
+            value={enteredUserPassword}
+            errorMessage="Please check your password."
+            changeHandler={userPasswordChangeHandler}
+            blurHandler={userPasswordBlurHandler}
+          />
           <div className={classes.actions}>
             <Button type="submit" disabled={!formIsValid}>
               Login
