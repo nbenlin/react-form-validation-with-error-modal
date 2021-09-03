@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import Card from "../UI/Card/Card";
 import Button from "../UI/Button/Button";
 import classes from "./Login.module.css";
@@ -49,12 +49,12 @@ const Login = (props) => {
     if (formIsValid) {
       authCtx.onLogin();
     } else if (!userEmailIsValid) {
-      emailInputRef.current.activate();
+      emailInputRef.current.focus();
     } else {
-      passwordInputRef.current.activate();
+      passwordInputRef.current.focus();
     }
-    resetUserEmail();
-    resetUserPassword();
+    // resetUserEmail();
+    // resetUserPassword();
   };
 
   return (
