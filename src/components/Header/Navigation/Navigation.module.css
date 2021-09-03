@@ -16,7 +16,11 @@
   padding: 11px 24px;
   color: white;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
+  border: none;
   border-radius: 20px;
-  margin: 0;
+  transition: 0.2s all ease;
+}
+
+.nav button:hover {
+  transform: scale(1.1);
 }
